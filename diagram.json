@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -43.3,
+      "left": -5,
+      "attrs": { "builder": "esp-idf" }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": 4.98,
+      "left": 187.48,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg2",
+      "top": 4.98,
+      "left": 245.08,
+      "attrs": { "common": "cathode" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:D23", "sevseg1:G", "green", [ "h0" ] ],
+    [ "sevseg2:G", "esp:D23", "green", [ "v0" ] ],
+    [ "sevseg1:F", "esp:D22", "green", [ "v0" ] ],
+    [ "sevseg2:F", "esp:D22", "green", [ "v0" ] ],
+    [ "sevseg1:A", "esp:D21", "green", [ "v-8.76", "h-124.5" ] ],
+    [ "sevseg2:A", "esp:D21", "green", [ "v-8.76", "h-182.1" ] ],
+    [ "sevseg1:B", "esp:D19", "green", [ "v-18.36", "h-124.8", "v38.5" ] ],
+    [ "sevseg2:B", "esp:D19", "green", [ "v-18.36", "h-172.8", "v38.5" ] ],
+    [ "sevseg1:E", "esp:D18", "green", [ "v9.6", "h-76.8", "v-48" ] ],
+    [ "sevseg2:E", "esp:D18", "green", [ "v19.2", "h-144", "v-57.6" ] ],
+    [ "sevseg1:D", "esp:D5", "green", [ "v19.2", "h-86.4", "v-48" ] ],
+    [ "sevseg2:D", "esp:D5", "green", [ "v28.8", "h-134.4", "v-57.6" ] ],
+    [ "sevseg1:C", "esp:D4", "green", [ "v48", "h-105.6", "v-48.1" ] ],
+    [ "sevseg2:C", "esp:D4", "green", [ "v57.6", "h-163.2", "v-57.7" ] ],
+    [ "sevseg1:COM.1", "esp:D14", "green", [ "v105.6", "h-240", "v-105.7" ] ],
+    [ "sevseg2:COM.1", "esp:D27", "green", [ "v124.8", "h-316.8", "v-134.1" ] ]
+  ],
+  "dependencies": {}
+}
